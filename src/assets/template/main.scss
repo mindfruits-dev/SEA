@@ -3,6 +3,7 @@
 @import "./utils/mixins";
 @import "./utils/extensions";
 @import "./base/base";
+@import "./base/eject";
 @import "./base/typography";
 @import "./components/buttons";
 @import "./layouts/header";
@@ -14,22 +15,24 @@
 @import "./pages/project";
 
 
-body:not(#pound){
+body{
   header{
-    padding:0;
-    display:grid;
-    grid-template:repeat(1, 100px) / 2fr 8fr 2fr;
-    >*{height:100%;}
-    border-bottom: solid;
-    box-shadow: 0 0 10px 1px;
-    menu,menu>ul>li{margin:0;padding:0;}
-    menu>ul>li img{height:70px}
-    menu{}
-    menu .logo{position: absolute;left:0;}
-    menu>ul{height: 100%;display:flex;justify-content: flex-end;}
-    menu>ul>li:not(.logo){display:flex;align-items:center;width: 20%;}
-    menu>ul>li:last-of-type{margin-right: 5em;}
-    menu>ul>li>a{width:100%;text-align: center;}
+    nav{
+      background:linear-gradient(to right,var(--bleu), var(--jaune) 35%, var(--vert) 90%);
+      >a.header--navbar__logo:before{content:"";position:absolute;left:-1%;height:100px;width:300px;background:url(https://www.mindfruits.biz/wp-content/uploads/2017/06/mindfruits.png) center / contain no-repeat;}
+      >a.header--navbar__logoMobile{background:rgba(var(--gray_),.5);border-radius: 1em;}
+      >a.header--navbar__logoMobile:hover{background:var(--gray);border-radius: 1em;}
+    }
+    menu{
+      display:flex;justify-content:space-around;background: rgba(95,99,104,.5);border-right: solid;border-left: solid;
+      li{
+        float:left;list-style:none;
+        a{
+          transition: background-color .3s, color .3s;    font-size: 1rem;    color: #fff;    display: block;    padding: 0 15px;    cursor: pointer;
+          &:hover{background-color:whitesmoke; color:black;}
+        }
+      }
+    }
   }
   nav{
 
@@ -41,6 +44,3 @@ body:not(#pound){
 
   }
 }
-
-
-.offset3{}

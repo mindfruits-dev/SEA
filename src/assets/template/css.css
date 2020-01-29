@@ -1,8 +1,17 @@
-body:not(#pound) {
-  background: whitesmoke;
+:root {
+  --bleu: #4285f4;
+  --jaune: #fbbc04;
+  --vert: #34a853;
+  --gray: #5f6368;
+  --gray_: 95,99,104;
 }
-body:not(#pound) .top-bar, body:not(#pound) .top-bar ul {
-  background: transparent;
+
+body:not(#pounded) nav .brand-logo {
+  position: unset;
+}
+body:not(#pounded) > header .col {
+  padding: 0;
+  margin: 0;
 }
 
 /**/
@@ -10,43 +19,47 @@ body:not(#pound) .top-bar, body:not(#pound) .top-bar ul {
 /**/
 /**/
 /**/
-body:not(#pound) header {
-  padding: 0;
-  display: grid;
-  grid-template: repeat(1, 100px)/2fr 8fr 2fr;
-  border-bottom: solid;
-  box-shadow: 0 0 10px 1px;
+body header nav {
+  background: linear-gradient(to right, var(--bleu), var(--jaune) 35%, var(--vert) 90%);
 }
-body:not(#pound) header > * {
-  height: 100%;
-}
-body:not(#pound) header menu, body:not(#pound) header menu > ul > li {
-  margin: 0;
-  padding: 0;
-}
-body:not(#pound) header menu > ul > li img {
-  height: 70px;
-}
-body:not(#pound) header menu .logo {
+body header nav > a.header--navbar__logo:before {
+  content: "";
   position: absolute;
-  left: 0;
+  left: -1%;
+  height: 100px;
+  width: 300px;
+  background: url(https://www.mindfruits.biz/wp-content/uploads/2017/06/mindfruits.png) center/contain no-repeat;
 }
-body:not(#pound) header menu > ul {
-  height: 100%;
+body header nav > a.header--navbar__logoMobile {
+  background: rgba(var(--gray_), 0.5);
+  border-radius: 1em;
+}
+body header nav > a.header--navbar__logoMobile:hover {
+  background: var(--gray);
+  border-radius: 1em;
+}
+body header menu {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
+  background: rgba(95, 99, 104, 0.5);
+  border-right: solid;
+  border-left: solid;
 }
-body:not(#pound) header menu > ul > li:not(.logo) {
-  display: flex;
-  align-items: center;
-  width: 20%;
+body header menu li {
+  float: left;
+  list-style: none;
 }
-body:not(#pound) header menu > ul > li:last-of-type {
-  margin-right: 5em;
+body header menu li a {
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 1rem;
+  color: #fff;
+  display: block;
+  padding: 0 15px;
+  cursor: pointer;
 }
-body:not(#pound) header menu > ul > li > a {
-  width: 100%;
-  text-align: center;
+body header menu li a:hover {
+  background-color: whitesmoke;
+  color: black;
 }
 
 /*# sourceMappingURL=css.css.map */
